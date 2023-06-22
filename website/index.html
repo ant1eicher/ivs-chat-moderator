@@ -1,0 +1,68 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <script src="chat.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-dark text-white">Chat</div>
+        <div class="card-body">
+          <form id="settings-form" class="needs-validation" novalidate>
+            <div class="mb-3 row">
+              <label for="chat-username" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-10">
+                <input type="text" class="col-sm-10 form-control" id="chat-username" required />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="chat-token" class="col-sm-2 col-form-label">Chat Token</label>
+              <div class="col-sm-10">
+                <input type="text" class="col-sm-10 form-control" id="chat-token" required />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="chat-endpoint" class="col-sm-2 col-form-label">Endpoint</label>
+              <div class="col-sm-10">
+                <select id="chat-endpoint" class="col-sm-10 form-control" required>
+                  <option value="wss://edge.ivschat.us-west-2.amazonaws.com">us-west-2</option>
+                  <option value="wss://edge.ivschat.us-east-1.amazonaws.com">us-east-1</option>
+                  <option value="wss://edge.ivschat.eu-west-1.amazonaws.com">eu-west-1</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-dark" id="submit-settings" disabled>Submit</button>
+              </div>
+            </div>
+            <div class="card mt-3">
+              <div class="card-body">
+                <h5 class="card-title">Instructions</h5>
+                <p class="card-text">To generate a new chat token for a user with the AWS CLI, execute:</p>
+                <pre class="card-text">
+<code>aws ivschat create-chat-token --room-identifier arn:aws:ivschat:us-west-2:{account_id}:room/{room_id} --user-id "USER${RANDOM}" --capabilities "SEND_MESSAGE"</code>
+        </pre>
+              </div>
+            </div>
+          </form>
+
+          <div id="chat-container" class="d-none">
+            <div id="chat" class="border rounded mb-3 p-3" style="height: 300px; overflow-y: auto"></div>
+            <div id="chat-input-container">
+              <div class="input-group">
+                <input id="chat-input" placeholder="Message" maxlength="500" type="text" class="form-control" />
+                <button id="submit-chat" class="btn btn-outline-secondary">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
