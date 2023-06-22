@@ -4,7 +4,7 @@ import { ChatStack } from "./chat-stack";
 import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import { WebsiteStack } from "./website-stack";
 
-export class IVSChatModeratorStack extends cdk.Stack {
+export class IvsChatModeratorStack extends cdk.Stack {
   constructor (scope: Construct, id: string, props: cdk.StackProps) {
     super(scope, id, {
       stackName: props.stackName,

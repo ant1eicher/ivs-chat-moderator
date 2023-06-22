@@ -27,6 +27,10 @@ The CDK stack also includes a web UI to demo the functionality. Instructions on 
 - AWS CDK
 - Go
 
+### Secrets
+
+Upload your ChatGPT API key to [AWS Secrets Manager](https://us-west-2.console.aws.amazon.com/secretsmanager), using the name `gptApiKey`.
+
 ### Deployment
 
 Execute the `make deploy` command to build the Go lambda and deploy the CDK stack. After deployment, CDK will
